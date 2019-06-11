@@ -44,6 +44,14 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+    postcss: {
+      plugins: {
+        'autoprefixer': {}
+      },
+      preset: {
+        stage: 0
+      }
+    }
   }
 }
