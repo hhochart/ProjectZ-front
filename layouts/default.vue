@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <header-component />
+    <sidebar />
 
-    <section class="main-content columns">
-      <sidebar />
-      <div class="container column is-10">
+    <section class="flex flex-col">
+      <div class="container mx-auto bg-purple-100 p-5 flex-grow">
         <nuxt />
       </div>
     </section>
@@ -12,12 +11,10 @@
 </template>
 
 <script>
-import HeaderComponent from '@/components/nav/Header'
 import Sidebar from '@/components/nav/Sidebar'
 
 export default {
   components: {
-    HeaderComponent,
     Sidebar
   }
 }
@@ -26,14 +23,9 @@ export default {
 <style lang="postcss">
 #app {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
   & > section {
     flex-grow: 1;
-    &.columns {
-      margin-bottom: 0;
-      margin-top: 0;
-    }
   }
 }
 </style>

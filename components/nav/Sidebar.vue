@@ -1,70 +1,63 @@
 <template>
-  <aside class="column is-2 section">
-    <p class="menu-label is-hidden-touch">Your profile</p>
-    <ul class="menu-list">
-      <li v-for="(item, key) of items" :key="key">
-        <nuxt-link :to="item.to" exact-active-class="is-active">
-          <b-icon :icon="item.icon" />
-          <span v-if="!storeSidebarCollapsed">{{ item.title }}</span>
+  <aside class="p-5 bg-purple-200">
+    <Logo />
+    <nav>
+      <div v-for="link in links" :key="`link-${link.name}`">
+        <nuxt-link :to="{ path: `${link.path}` }">
+          <i :class="`lni-${link.icon} mr-2`"></i>
+          <span>
+            {{ link.name }}
+          </span>
         </nuxt-link>
-      </li>
-    </ul>
-
-    <p class="menu-label is-hidden-touch">Games</p>
-    <ul class="menu-list">
-      <li v-for="(item, key) of items" :key="key">
-        <nuxt-link :to="item.to" exact-active-class="is-active">
-          <b-icon :icon="item.icon" />
-          <span v-if="!storeSidebarCollapsed">{{ item.title }}</span>
-        </nuxt-link>
-      </li>
-    </ul>
-
-    <p class="menu-label is-hidden-touch">Social</p>
-    <ul class="menu-list">
-      <li v-for="(item, key) of items" :key="key" :style="computedSidebarStyle">
-        <nuxt-link :to="item.to" exact-active-class="is-active">
-          <b-icon :icon="item.icon" />
-          <span v-if="!storeSidebarCollapsed">{{ item.title }}</span>
-        </nuxt-link>
-      </li>
-    </ul>
-
-    <p class="menu-label is-hidden-touch">Settings</p>
-    <ul class="menu-list">
-      <li v-for="(item, key) of items" :key="key">
-        <nuxt-link :to="item.to" exact-active-class="is-active">
-          <b-icon :icon="item.icon" />
-          <span v-if="!storeSidebarCollapsed">{{ item.title }}</span>
-        </nuxt-link>
-      </li>
-    </ul>
-
+        <component :is="link.component" v-if="link.component" />
+      </div>
+    </nav>
     <div
       class="collapser"
       :style="computedCollapserStyle"
       @click="$store.commit('collapseSidebar')"
-    >
-      <b-icon icon="chevron-left" />
-    </div>
+    ></div>
   </aside>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import Logo from '@/components/Logo'
+import SidebarProfile from '@/components/nav/SidebarProfile'
+import SidebarNotifs from '@/components/nav/SidebarNotifs'
 
 export default {
+  components: {
+    Logo
+  },
   data: () => ({
-    items: [
+    links: [
       {
-        title: 'Home',
-        icon: 'home',
-        to: { name: 'index' }
+        name: 'Dota 2',
+        path: 'dota2',
+        icon: 'game'
       },
       {
-        title: 'Inspire',
-        icon: 'lightbulb',
-        to: { name: 'inspire' }
+        name: 'Rocket league',
+        path: 'rocket-league',
+        icon: 'game'
+      },
+      {
+        name: 'PUB',
+        path: 'pubg',
+        icon: 'game'
+      },
+      {
+        name: 'Profile',
+        path: 'profile',
+        icon: 'user',
+        component: SidebarProfile
+      },
+      {
+        name: 'Notifications',
+        path: 'notifications',
+        icon: 'alarm',
+        component: SidebarNotifs
       }
     ]
   }),
@@ -81,19 +74,4 @@ export default {
 }
 </script>
 
-<style lang="postcss">
-aside {
-  position: relative;
-}
-
-.collapser {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  cursor: pointer;
-  transition: transform 0.4s ease-in-out;
-}
-ul > li {
-  transition: 0.5s width ease-in-out;
-}
-</style>
+<style lang="postcss"></style>

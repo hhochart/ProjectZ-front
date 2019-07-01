@@ -4,7 +4,6 @@ export const state = () => ({
 
 export const mutations = {
   collapseSidebar(state) {
-    console.log('allo')
     state.sidebarCollapsed = !state.sidebarCollapsed
   }
 }

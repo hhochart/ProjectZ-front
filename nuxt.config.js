@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   mode: 'universal',
   /*
@@ -14,16 +16,28 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/gh/GrayGrids/LineIcons/LineIcons.css'
+      }
+    ]
   },
+
+  env: {
+    api_key_pubg: process.env.API_KEY_PUBG
+  },
+
   /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
+
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~/assets/css/tailwind.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -31,12 +45,7 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    // Doc: https://buefy.github.io/#/documentation
-    'nuxt-buefy',
-    '@nuxtjs/pwa',
-    '@nuxtjs/eslint-module'
-  ],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/eslint-module'],
   /*
    ** Build configuration
    */
@@ -44,10 +53,11 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
+    extend(config, ctx) { },
     postcss: {
       plugins: {
-        'autoprefixer': {}
+        tailwindcss: './tailwind.config.js',
+        autoprefixer: {}
       },
       preset: {
         stage: 0
