@@ -44,7 +44,7 @@ export default {
     & .left-banner {
       width: 150px;
       height: 300px;
-      margin: 100px;
+      margin: 15px;
       @apply bg-red-500 flex flex-col items-center justify-center;
     }
   }
@@ -60,7 +60,7 @@ export default {
     & .right-banner {
       width: 150px;
       height: 300px;
-      margin: 100px;
+      margin: 15px;
       @apply bg-red-500 flex flex-col items-center justify-center;
     }
   }

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <sidebar />
+    <sidebar ref="sidebar" />
 
-    <section class="flex flex-col">
-      <div class="container mx-auto bg-purple-100 p-5 flex-grow">
+    <section class="flex flex-col bg-purple-100">
+      <div class="container mx-auto p-5 flex-grow">
         <nuxt />
       </div>
     </section>
@@ -22,10 +22,9 @@ export default {
 
 <style lang="postcss">
 #app {
-  display: flex;
-  min-height: 100vh;
+  @apply flex;
   & > section {
-    flex-grow: 1;
+    @apply flex-grow;
   }
 }
 </style>

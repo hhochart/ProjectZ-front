@@ -15,11 +15,3 @@ export default {
   })
 }
 </script>
-
-<style lang="postcss" scoped>
-span {
-  max-width: 90px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-</style>
