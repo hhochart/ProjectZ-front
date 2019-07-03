@@ -49,11 +49,22 @@ module.exports = {
   /*
    ** Build configuration
    */
+
+  /*
+   ** Netlify Lambda Proxy
+   */
+  proxy: {
+    '/.netlify': {
+      target: 'http://localhost:9000',
+      pathRewrite: { '^/.netlify/functions': '' }
+    }
+  },
+
   build: {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) { },
+    extend(config, ctx) {},
     postcss: {
       plugins: {
         tailwindcss: './tailwind.config.js',
