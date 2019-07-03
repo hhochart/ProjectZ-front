@@ -1,4 +1,4 @@
 [build]
-command = "npm run build:lambda"
+command = "npm run generate && npm run build:lambda"
 functions = "lambda-dist"
 publish = "dist"
