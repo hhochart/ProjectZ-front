@@ -3,7 +3,7 @@
     <Logo />
     <nav>
       <div v-for="link in links" :key="`link-${link.name}`">
-        <nuxt-link :to="{ path: `${link.path}` }">
+        <nuxt-link :to="{ path: `/${link.path}` }">
           <i :class="`lni-${link.icon}`"></i>
           <transition name="fade">
             <span v-if="!delayedCollapse">

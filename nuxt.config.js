@@ -45,7 +45,7 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa', '@nuxtjs/eslint-module'],
+  modules: ['@nuxtjs/proxy', '@nuxtjs/pwa', '@nuxtjs/eslint-module'],
   /*
    ** Build configuration
    */
