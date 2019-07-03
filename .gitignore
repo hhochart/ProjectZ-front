@@ -67,7 +67,7 @@ typings/
 
 # nuxt.js build output
 .nuxt
-.lamba
+.lambda
 # Nuxt generate
 dist
 

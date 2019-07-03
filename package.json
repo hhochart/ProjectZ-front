@@ -10,7 +10,7 @@
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "dev:lambda": "netlify-lambda serve lambda",
     "start": "cross-env NODE_ENV=production node server/index.js",
-    "generate": "nuxt generate && npm run build:lambda",
+    "generate": "nuxt generate",
     "build:lambda": "netlify-lambda build lambda"
   },
   "dependencies": {
