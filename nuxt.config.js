@@ -25,10 +25,6 @@ module.exports = {
     ]
   },
 
-  env: {
-    api_key_pubg: process.env.API_KEY_PUBG
-  },
-
   /*
    ** Customize the progress-bar color
    */
